@@ -16,5 +16,11 @@ class Habit extends Model
         'goal_time',
         'goal_status',
         'time_options',
+        'user_id', // tambahkan agar bisa mass assign user_id
     ];
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }

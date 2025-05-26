@@ -1,15 +1,15 @@
-
 @extends('layouts.app')
 
 @section('content')
-    <h1>Habit List</h1>
-    <a href="{{ route('habits.create') }}">Create New Habit</a>
+    <h1>User List</h1>
+    <a href="{{ route('users.create') }}">Create New User</a>
 
-    @foreach ($habits as $habit)
+    @foreach ($users as $user)
         <div>
-            <h3>{{ $habit->name }}</h3>
-            <a href="{{ route('habits.edit', $habit) }}">Edit</a>
-            <form action="{{ route('habits.destroy', $habit) }}" method="POST" style="display:inline;">
+            <h3>{{ $user->name }} ({{ $user->email }})</h3>
+            <p>Habits: {{ $user->habits->pluck('name')->join(', ') }}</p>
+            <a href="{{ route('users.edit', $user) }}">Edit</a>
+            <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Delete</button>

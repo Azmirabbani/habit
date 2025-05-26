@@ -9,41 +9,57 @@ class HabitsTableSeeder extends Seeder
 {
     public function run()
     {
-        // Membuat data habit dummy
         Habit::create([
-            'name' => 'Workout',
-            'icon_default' => 'assets/workout.png',
-            'icon_status' => json_encode(['assets/book.png', 'assets/meditate.png', 'assets/workout.png', 'assets/water.png']),
+            'name' => 'Morning Run',
+            'icon_default' => 'default-icon.png',
+            'icon_status' => json_encode([
+                'active' => 'icon-active.png',
+                'inactive' => 'icon-inactive.png'
+            ]),
             'goal_time' => 'daily',
-            'goal_status' => json_encode([false, false, true, false, true, false, false]),
-            'time_options' => json_encode(['all day', 'morning', 'afternoon', 'night']),
+            'goal_status' => json_encode([
+                'completed' => 2,
+                'in_progress' => 1,
+                'not_started' => 0
+            ]),
+            'time_options' => json_encode(['morning', 'evening']),
+            'user_id' => 1,
+
+            
         ]);
 
         Habit::create([
-            'name' => 'Reading',
-            'icon_default' => 'assets/book.png',
-            'icon_status' => json_encode(['assets/meditate.png', 'assets/workout.png', 'assets/book.png', 'assets/water.png']),
+            'name' => 'Drink Water',
+            'icon_default' => 'default-icon.png',
+            'icon_status' => json_encode([
+                'active' => 'icon-active.png',
+                'inactive' => 'icon-inactive.png',
+            ]),
             'goal_time' => 'daily',
-            'goal_status' => json_encode([true, true, true, false, false, false, false]),
-            'time_options' => json_encode(['morning', 'afternoon']),
+            'goal_status' => json_encode([
+                'completed' => 3,
+                'in_progress' => 2,
+                'not_started' => 2,
+            ]),
+            'time_options' => json_encode(['morning', 'afternoon', 'evening']),
+            'user_id' => 1,
         ]);
 
         Habit::create([
-            'name' => 'Meditation',
-            'icon_default' => 'assets/meditate.png',
-            'icon_status' => json_encode(['assets/meditate.png', 'assets/workout.png', 'assets/book.png', 'assets/water.png']),
-            'goal_time' => 'daily',
-            'goal_status' => json_encode([true, false, true, false, false, true, false]),
-            'time_options' => json_encode(['morning', 'night']),
-        ]);
-
-        Habit::create([
-            'name' => 'Drinking Water',
-            'icon_default' => 'assets/water.png',
-            'icon_status' => json_encode(['assets/burn.png', 'assets/steps.png', 'assets/bed.png']),
-            'goal_time' => 'daily',
-            'goal_status' => json_encode([false, false, false, true, true, false, false]),
-            'time_options' => json_encode(['morning', 'afternoon', 'night']),
-        ]);
+            'name' => 'Read Book',
+            'icon_default' => 'book-icon.png',
+            'icon_status' => json_encode([
+                'active' => 'book-active.png',
+                'inactive' => 'book-inactive.png',
+            ]),
+            'goal_time' => 'weekly',
+            'goal_status' => json_encode([
+                'completed' => 1,
+                'in_progress' => 0,
+                'not_started' => 6,
+            ]),
+            'time_options' => json_encode(['night']),
+            'user_id' => 2,
+         ]);
     }
 }

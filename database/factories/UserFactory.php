@@ -4,10 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
-    // Tentukan model-nya, biasanya User::class
     protected $model = \App\Models\User::class;
 
     public function definition()
@@ -15,8 +15,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => bcrypt('password'), // password default
-            // Hapus kolom email_verified_at dan remember_token jika tidak pakai
+            'password' => Hash::make('password'), // default password
         ];
     }
 }

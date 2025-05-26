@@ -11,9 +11,10 @@ class User extends Model
 
     protected $fillable = ['name', 'email', 'password'];
 
-    // Relasi Many-to-Many dengan Habit
+    protected $hidden = ['password'];
+
     public function habits()
-    {
-        return $this->belongsToMany(Habit::class);
-    }
+{
+    return $this->hasMany(Habit::class);
+}
 }

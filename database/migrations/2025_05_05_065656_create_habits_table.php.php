@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('goal_time');
             $table->json('goal_status');
             $table->json('time_options');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
